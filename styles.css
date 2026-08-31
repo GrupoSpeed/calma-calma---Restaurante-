@@ -592,9 +592,63 @@ h3.display{font-size:var(--fs-h3);line-height:1.1}
   padding-top:var(--s1);text-align:center;line-height:1.1;
 }
 .polaroid:hover{transform:rotate(0deg) translateY(-4px) !important;box-shadow:var(--shadow-lift)}
-.polaroid--a{transform:rotate(-3.5deg)}
-.polaroid--b{transform:rotate(2.5deg)}
-.polaroid--c{transform:rotate(-1.5deg);margin-right:var(--s4)}
+
+/* SCATTERED PILE — ten full-size polaroids fanned out behind the sticky
+   plate (z-index:1, plate-layer is 3), like photos tossed on a table.
+   Desktop only: the pin needs every photo inside one viewport, so each
+   gets a fixed spot instead of stacking in flow. Mobile falls back to
+   the plain two-column grid below (§ mobile handoff). */
+@media (min-width:769px){
+  .pranzo__side{display:contents}
+  .pranzo__side .polaroid{position:absolute;margin:0;transform-origin:center}
+  .pranzo__side .polaroid:hover{z-index:2}
+  .polaroid--p1{left:0%;  transform:rotate(-9deg)}
+  .polaroid--p2{left:9%;  transform:rotate(7deg)}
+  .polaroid--p3{left:-2%; transform:rotate(-6deg)}
+  .polaroid--p4{left:7%;  transform:rotate(10deg)}
+  .polaroid--p5{left:0%;  transform:rotate(-11deg)}
+  .polaroid--p6{right:0%;  transform:rotate(8deg)}
+  .polaroid--p7{right:9%;  transform:rotate(-7deg)}
+  .polaroid--p8{right:-2%; transform:rotate(11deg)}
+  .polaroid--p9{right:7%;  transform:rotate(-9deg)}
+  .polaroid--p10{right:0%; transform:rotate(6deg)}
+}
+
+/* top = a linear function of the viewport height (calc(%+px), not
+   clamp): the header sits at a near-constant pixel height while the
+   footer tracks a constant % of it, so a fixed floor either fails to
+   clear the header on a mid-size window or overshoots the footer on a
+   tall one. Solving top1/top5 against both and interpolating the rest
+   keeps every photo between the two — but the fit also caps how big a
+   photo can get: below ~880px tall there isn't room for the enlarged
+   size, so that range keeps the previous (smaller) scale in its own
+   tier instead of overflowing. */
+@media (min-width:769px) and (min-height:761px) and (max-height:879px){
+  .pranzo__side .polaroid{width:min(23vw,278px);padding:var(--s1) var(--s1) var(--s3)}
+  .polaroid--p1{top:calc(6% + 180px)}
+  .polaroid--p2{top:calc(28% + 13px)}
+  .polaroid--p3{top:calc(50% - 135px)}
+  .polaroid--p4{top:calc(71% - 283px)}
+  .polaroid--p5{top:calc(93% - 430px)}
+  .polaroid--p6{top:calc(6% + 195px)}
+  .polaroid--p7{top:calc(28% + 28px)}
+  .polaroid--p8{top:calc(50% - 120px)}
+  .polaroid--p9{top:calc(71% - 268px)}
+  .polaroid--p10{top:calc(93% - 440px)}
+}
+@media (min-width:769px) and (min-height:880px){
+  .pranzo__side .polaroid{width:min(32vw,389px);padding:var(--s1) var(--s1) var(--s3)}
+  .polaroid--p1{top:calc(10% + 144px)}
+  .polaroid--p2{top:calc(28% - 4px)}
+  .polaroid--p3{top:calc(45% - 151px)}
+  .polaroid--p4{top:calc(63% - 299px)}
+  .polaroid--p5{top:calc(80% - 446px)}
+  .polaroid--p6{top:calc(10% + 159px)}
+  .polaroid--p7{top:calc(28% + 11px)}
+  .polaroid--p8{top:calc(45% - 136px)}
+  .polaroid--p9{top:calc(63% - 284px)}
+  .polaroid--p10{top:calc(80% - 456px)}
+}
 
 /* -- 11 LA CASA ----------------------------------------------------------- */
 .casa__grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1fr);gap:clamp(var(--s4),6vw,var(--s6));align-items:center}
@@ -842,8 +896,6 @@ h3.display{font-size:var(--fs-h3);line-height:1.1}
   .footer__grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:900px){
-  .pranzo__side .polaroid{width:min(20vw,150px)}
-  .polaroid--c{margin-right:0}
   .mercearia__grid{grid-template-columns:1fr;gap:var(--s4)}
   .reviews__grid{grid-template-columns:1fr;gap:var(--s4)}
   .note{max-width:520px}
@@ -862,6 +914,21 @@ h3.display{font-size:var(--fs-h3);line-height:1.1}
   .pranzo__head h2{font-size:1.4rem}
   .pranzo__head p{font-size:.88rem}
   .pranzo__foot{font-size:.8rem}
+  .pranzo__side .polaroid{width:min(16vw,20vh,180px);padding:8px 8px 19px}
+  /* the base clamp() floors assume the tall-header pixel height; under
+     760px the header text has already shrunk (see rules above), so a
+     smaller, height-scaled offset clears it without eating too far into
+     the footer's budget, which shrinks with the viewport too */
+  .polaroid--p1{top:calc(16% + 88px)}
+  .polaroid--p2{top:calc(22% + 88px)}
+  .polaroid--p3{top:calc(28% + 88px)}
+  .polaroid--p4{top:calc(34% + 88px)}
+  .polaroid--p5{top:calc(40% + 88px)}
+  .polaroid--p6{top:calc(18% + 88px)}
+  .polaroid--p7{top:calc(24% + 88px)}
+  .polaroid--p8{top:calc(30% + 88px)}
+  .polaroid--p9{top:calc(36% + 88px)}
+  .polaroid--p10{top:calc(42% + 88px)}
 }
 
 /* PORCHETTA: below 760px nothing overlaps — it simply stacks. */

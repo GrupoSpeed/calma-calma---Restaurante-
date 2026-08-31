@@ -40,34 +40,31 @@
     'hero.script': 'an Italian in Setúbal',
     'hero.cue': 'slowly',
 
-    'plate.0.label': 'Pranzo', 'plate.0.time': '12:30 — 14:30',
+    'plate.0.label': 'Pranzo', 'plate.0.time': '12:30 - 14:30',
     'plate.0.copy': 'Pasta made this morning, fish off the quay, vegetables from whoever picked them. Lunch takes as long as it takes.',
-    'plate.1.label': 'Aperitivo', 'plate.1.time': '18:30 — 20:00',
+    'plate.1.label': 'Aperitivo', 'plate.1.time': '18:30 - 20:00',
     'plate.1.copy': 'Musa craft beer, natural wine, calamari fritti. The terrace holds the sun until late.',
-    'plate.2.label': 'Cena', 'plate.2.time': '20:00 — 23:30',
+    'plate.2.label': 'Cena', 'plate.2.time': '20:00 - 23:30',
     'plate.2.copy': 'Ravioli of the day, agnolotti, spaghettoni with whatever the sea gave. And carbonara, always.',
     'plate.3.label': 'To take home', 'plate.3.time': 'Grocery',
     'plate.3.copy': "The day's fresh pasta, a rotating wine selection and produce from small local farmers.",
 
     'pranzo.eyebrow': 'The day starts slowly',
     'pranzo.title': 'There is no fixed menu.',
-    'pranzo.lede': 'What arrived today — and the pasta Seb made this morning.',
-    'pranzo.cap1': 'pasta of the day',
-    'pranzo.cap2': 'to share',
-    'pranzo.cap3': 'pappardelle al ragù',
+    'pranzo.lede': 'What arrived today and the pasta Seb made this morning.',
     'pranzo.foot': 'Turn the plate to see the rest of the day.',
 
     'casa.stamp': 'every day',
     'casa.eyebrow': 'The house',
     'casa.title': 'Two countries in one kitchen. Three, if you count the room.',
-    'casa.p1': 'Seb — Eusebiu Tuchilus — makes fresh pasta every morning, the way he learned in Italy. Lovejoy, a Filipino architect and his partner, designed the space herself: wood, exposed cement, steel, terracotta and green.',
+    'casa.p1': 'Seb - Eusebiu Tuchilus - makes fresh pasta every morning, the way he learned in Italy. Lovejoy, a Filipino architect and his partner, designed the space herself: wood, exposed cement, steel, terracotta and green.',
     'casa.p2': 'They opened on 8 August 2025, on a street in the historic centre of Setúbal. The menu changes with the market and the fish auction. Choco frito stayed, out of respect for the town.',
     'casa.quote': '“It’s a slightly different concept. An Italian restaurant, but we use products from the Setúbal region.”',
     'casa.cite': 'Chef Seb, founder',
     'casa.stat1': 'seats inside', 'casa.stat2': 'on the terrace', 'casa.stat3': 'Portuguese wines',
 
     'ap.a': 'APER', 'ap.b': 'ITIVO',
-    'ap.copy': 'Musa craft beer, natural wine, a vermouth over ice. No big-brand soft drinks — we are proud of that. The terrace catches the last sun on Rua Antão Girão.',
+    'ap.copy': 'Musa craft beer, natural wine, a vermouth over ice. No big-brand soft drinks - we are proud of that. The terrace catches the last sun on Rua Antão Girão.',
 
     'cena.eyebrow': 'When the sun goes down',
     'cena.title': 'THE NIGHT LINGERS',
@@ -84,7 +81,7 @@
 
     'po.eyebrow': 'When the oven opens',
     'po.title': 'PORCHETTA',
-    'po.copy': 'Pork belly rolled with rosemary, fennel and garlic, roasting slowly until the skin cracks. It is the slowest dish in the house — and the first to run out.',
+    'po.copy': 'Pork belly rolled with rosemary, fennel and garlic, roasting slowly until the skin cracks. It is the slowest dish in the house - and the first to run out.',
     'po.tag': 'Sundays · while it lasts',
 
     'merc.eyebrow': 'Grocery',
@@ -96,8 +93,8 @@
 
     'rev.eyebrow': 'Those who have tasted it',
     'rev.title': 'They always stay a little longer.',
-    'rev.q1': '“Fantastic food, very good environment and service.”', 'rev.a1': 'Tripadvisor',
-    'rev.q2': '“Quality local products, unbeatable value for money.”', 'rev.a2': 'RestaurantGuru',
+    'rev.q1': '“Everything was so tasty and the service was always so friendly. We will recommend and be back.”', 'rev.a1': 'Fernanda Martins, Google',
+    'rev.q2': '“Food 10/10... Service great and friendly, and a really lovely atmosphere.”', 'rev.a2': 'Luiza Gil, Google',
     'rev.q3': '“Warm, chatty staff. You leave calmer than you arrived.”', 'rev.a3': 'At the counter',
     'rev.rating': 'out of 5 · Tripadvisor &amp; RestaurantGuru',
 
@@ -108,7 +105,7 @@
     'onde.hoursCaption': 'Opening hours',
     'onde.day': 'Day', 'onde.time': 'Hours',
     'onde.d1': 'Monday to Thursday', 'onde.d2': 'Friday and Saturday', 'onde.d3': 'Sunday',
-    'onde.hoursNote': 'Hours subject to confirmation — call us if you are coming from far away.',
+    'onde.hoursNote': 'Hours subject to confirmation - call us if you are coming from far away.',
     'onde.addr': 'Address', 'onde.phone': 'Phone',
 
     'res.eyebrow': 'Book',
