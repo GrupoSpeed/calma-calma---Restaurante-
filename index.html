@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calma Calma — Restaurante Italiano em Setúbal</title>
+<meta name="description" content="Trattoria italiana e mercearia no centro histórico de Setúbal. Massa fresca todos os dias, peixe e legumes da região, vinhos portugueses e italianos. Sem pressa.">
+<meta name="theme-color" content="#C1592A">
+<link rel="canonical" href="https://calmacalma.pt/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:site_name" content="Calma Calma">
+<meta property="og:title" content="Calma Calma — Restaurante Italiano em Setúbal">
+<meta property="og:description" content="Massa fresca, sem pressa. Cozinha italiana com produtos da região de Setúbal — e uma mercearia ao lado.">
+<meta property="og:url" content="https://calmacalma.pt/">
+<!-- SWAP: 1200×630 share image of the terrace or the pasta board -->
+<meta property="og:image" content="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=1200&h=630&q=70">
+<meta property="og:image:alt" content="Mãos polvilhadas de farinha a trabalhar massa fresca.">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts: Baloo 2 (display — matches the rounded geometric wordmark) ·
+     Lobster Two italic (retro brush script) · Work Sans (body/UI) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Lobster+Two:ital,wght@1,400;1,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- Structured data. NOTE: aggregateRating is deliberately omitted — the 4.3
+     rating is real (Tripadvisor / RestaurantGuru) but we have no verified
+     review count, and schema.org requires one. Add both together, or neither. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Calma Calma",
+  "description": "Trattoria italiana e mercearia no centro histórico de Setúbal. Massa fresca diária e produtos da região.",
+  "url": "https://calmacalma.pt/",
+  "telephone": "+351938102159",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Antão Girão 44",
+    "addressLocality": "Setúbal",
+    "postalCode": "2900-475",
+    "addressRegion": "Setúbal",
+    "addressCountry": "PT"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 38.5244, "longitude": -8.8882 },
+  "servesCuisine": ["Italian", "Portuguese"],
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "acceptsReservations": "True",
+  "foundingDate": "2025-08-08",
+  "sameAs": [
+    "https://www.instagram.com/calmacalma.restaurante/",
+    "https://www.instagram.com/calmacalmamercearia/"
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "12:30", "closes": "14:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "18:30", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "12:30", "closes": "14:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "18:30", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "19:00" }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#pranzo" data-i18n="a11y.skip">Saltar para o conteúdo</a>
+
+<!-- =========================================================================
+     NAV — transparent over the hero, blurred cream after 80px
+     ====================================================================== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <!-- The mark, keyed to transparency so the same artwork works on the bar in
+         both states: cream over the hero, forest once the bar goes solid. -->
+    <a class="nav__brand" href="#top">
+      <img class="nav__logo nav__logo--light" src="img/logo-cream.webp" alt=""
+           width="560" height="113" decoding="async">
+      <img class="nav__logo nav__logo--dark" src="img/logo-forest.webp" alt=""
+           width="560" height="113" decoding="async">
+      <span class="sr-only">Calma Calma — Restaurante</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Principal">
+      <a class="link" href="#pranzo"    data-i18n="nav.pranzo">Pranzo</a>
+      <a class="link" href="#casa"      data-i18n="nav.casa">A Casa</a>
+      <a class="link" href="#aperitivo" data-i18n="nav.aperitivo">Aperitivo</a>
+      <a class="link" href="#cena"      data-i18n="nav.cena">Cena</a>
+      <a class="link" href="#mercearia" data-i18n="nav.mercearia">Mercearia</a>
+      <a class="link" href="#onde"      data-i18n="nav.onde">Onde</a>
+    </nav>
+
+    <div class="nav__tools">
+      <!-- PT / EN toggle: swaps text via data-i18n + a small dictionary in main.js -->
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button class="lang__btn" type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button class="lang__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="nav__toggle" type="button" id="navToggle"
+              aria-label="Abrir menu" aria-expanded="false" aria-controls="navPanel"><span></span></button>
+    </div>
+  </div>
+
+  <!-- full-screen overlay menu (mobile) -->
+  <div class="nav__panel" id="navPanel">
+    <nav aria-label="Menu">
+      <a href="#pranzo"    data-i18n="nav.pranzo">Pranzo</a>
+      <a href="#casa"      data-i18n="nav.casa">A Casa</a>
+      <a href="#aperitivo" data-i18n="nav.aperitivo">Aperitivo</a>
+      <a href="#cena"      data-i18n="nav.cena">Cena</a>
+      <a href="#mercearia" data-i18n="nav.mercearia">Mercearia</a>
+      <a href="#onde"      data-i18n="nav.ondeLong">Onde &amp; Quando</a>
+    </nav>
+    <div class="nav__panel-foot">
+      <p class="script" data-i18n="nav.panelScript">sem pressa</p>
+      <p><a class="link" href="tel:+351938102159">+351 938 102 159</a></p>
+    </div>
+  </div>
+</header>
+
+<a class="btn reserve-pill" href="tel:+351938102159" data-i18n="cta.reserveShort">Reservar</a>
+
+<main id="top">
+
+<!-- =========================================================================
+     STAGE — hero + pranzo share one sticky layer so the plate is a single
+     element that travels from the hero into the carousel. See §09 in CSS.
+     ====================================================================== -->
+<div class="stage">
+
+  <!-- the travelling centrepiece. sticky = the browser owns the fixed→flow
+       handoff, so there is no pin boundary to jump at. -->
+  <div class="plate-layer" id="plateLayer">
+    <div class="centerpiece" id="centerpiece">
+
+      <div class="plate-wrap" id="plateWrap">
+        <div class="plate-shadow" aria-hidden="true"></div>
+
+        <div class="plate" id="plate">
+          <div class="plate-spin" id="plateSpin">
+            <div class="plate-dial" id="plateDial">
+
+              <!-- The plate, shot from overhead. Disc is dead-centre and fills
+                   98.7% of the square, so it maps 1:1 onto the dial box and spins
+                   true about 50% 50% with no correction. Not cropped. -->
+              <picture class="plate-disc">
+                <source srcset="assets/plate.webp" type="image/webp">
+                <img src="assets/plate.png" alt="" width="1006" height="1006" decoding="async" fetchpriority="high">
+              </picture>
+
+              <!-- counter-rotated twice (ambient spin, then the 90° snap) so the
+                   type inside the dial is always upright -->
+              <div class="plate-counter" id="plateCounter">
+                <div class="plate-content" id="plateContent">
+                  <div class="plate-stack" id="plateStack" aria-live="polite">
+
+                    <article class="moment is-active" data-moment="0">
+                      <h3 class="moment__label" data-i18n="plate.0.label">Pranzo</h3>
+                      <span class="moment__time" data-i18n="plate.0.time">12:30 — 14:30</span>
+                      <p class="moment__copy" data-i18n="plate.0.copy">Massa feita de manhã, peixe da lota, legumes de quem os apanhou. O almoço demora o que tiver de demorar.</p>
+                    </article>
+
+                    <article class="moment" data-moment="1">
+                      <h3 class="moment__label" data-i18n="plate.1.label">Aperitivo</h3>
+                      <span class="moment__time" data-i18n="plate.1.time">18:30 — 20:00</span>
+                      <p class="moment__copy" data-i18n="plate.1.copy">Cerveja Musa, vinho natural, calamari fritti. A esplanada apanha o sol até tarde.</p>
+                    </article>
+
+                    <article class="moment" data-moment="2">
+                      <h3 class="moment__label" data-i18n="plate.2.label">Cena</h3>
+                      <span class="moment__time" data-i18n="plate.2.time">20:00 — 23:30</span>
+                      <p class="moment__copy" data-i18n="plate.2.copy">Ravioli do dia, agnolotti, spaghettoni com o que o mar deu. E a carbonara, sempre.</p>
+                    </article>
+
+                    <article class="moment" data-moment="3">
+                      <h3 class="moment__label" data-i18n="plate.3.label">Para levar</h3>
+                      <span class="moment__time" data-i18n="plate.3.time">Mercearia</span>
+                      <p class="moment__copy" data-i18n="plate.3.copy">Massa fresca do dia, garrafeira rotativa e produtos de pequenos produtores da região.</p>
+                    </article>
+
+                  </div>
+                  <p class="plate-pager tabular"><span id="pagerNow">01</span> / 04</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- The forkful. The anchor places the pasta nest's centre (49.6%, 70.1%
+             of the image) on the plate's centre - not the image's centre, or the
+             nest hangs low. The anchor is never animated; GSAP lifts .forkful
+             inside it, so its y tween cannot eat the offset translate. -->
+        <div class="forkful-anchor" aria-hidden="true">
+          <div class="forkful" id="forkful">
+            <svg class="steam" viewBox="0 0 100 60" focusable="false">
+              <path d="M28 58 C20 44 36 38 28 22 C24 14 30 8 34 2"/>
+              <path d="M52 58 C44 42 60 36 52 20 C48 12 54 6 58 0"/>
+              <path d="M74 58 C66 46 80 40 73 26 C69 18 74 12 78 6"/>
+            </svg>
+            <picture class="forkful__art">
+              <source srcset="assets/fork.webp" type="image/webp">
+              <img src="assets/fork.png" alt="" width="720" height="1238" decoding="async">
+            </picture>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- carousel controls live outside the dial so they never rotate -->
+      <div class="plate-ui" id="plateUi">
+        <button class="plate-arrow" type="button" id="prevMoment" data-i18n-aria="a11y.prev" aria-label="Momento anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <div class="plate-dots" id="plateDots" role="tablist" aria-label="Momentos do dia"></div>
+        <button class="plate-arrow" type="button" id="nextMoment" data-i18n-aria="a11y.next" aria-label="Momento seguinte">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       01 · HERO
+       ==================================================================== -->
+  <section id="hero" class="grain" aria-labelledby="heroTitle">
+    <div class="hero__media" id="heroMedia">
+      <!-- SHOT: flour-dusted hands shaping ravioli, warm side light, shallow DOF.
+           Swap src for the real photo — keep width/height to avoid layout shift. -->
+      <img class="photo" id="heroImg"
+           src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=1800&q=72"
+           alt="Mãos polvilhadas de farinha a trabalhar massa fresca sobre a bancada."
+           data-i18n-alt="alt.hero" width="1800" height="1200" fetchpriority="high" decoding="async">
+    </div>
+    <div class="hero__veil" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <div class="hero__top">
+        <!-- arc headline: SVG textPath, scales with the viewBox -->
+        <!-- the brand panel, used as the hero lockup. The plate sits on the
+             sticky layer above, so it breaks the panel without any z-index work. -->
+        <h1 class="hero__wordmark" id="heroTitle">
+          <img src="img/brand-panel.webp" alt="Calma Calma — Restaurante"
+               width="900" height="568" fetchpriority="high" decoding="async">
+        </h1>
+      </div>
+
+      <div class="hero__bottom" id="heroBottom">
+        <p class="script hero__script" id="heroScript" data-i18n="hero.script">um italiano em Setúbal</p>
+        <div class="btn-row">
+          <a class="btn" href="tel:+351938102159" data-i18n="cta.reserve">Reservar mesa</a>
+          <a class="btn btn--ghost-light" href="#pranzo" data-i18n="cta.seeDay">Ver o dia</a>
+        </div>
+        <span class="hero__cue" aria-hidden="true"><i></i><em data-i18n="hero.cue">devagar</em></span>
+      </div>
+    </div>
+
+    <!-- organic divider 1 of 3: the rim of a plate -->
+    <div class="divider hero__divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+        <path class="fill-sand" d="M0,58 C240,2 480,4 720,38 C960,72 1200,82 1440,26 L1440,110 L0,110 Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       02 · PRANZO — the plate arrives here and becomes the carousel dial
+       ==================================================================== -->
+  <section id="pranzo" aria-labelledby="pranzoTitle">
+    <header class="pranzo__head reveal">
+      <span class="eyebrow" data-i18n="pranzo.eyebrow">O dia começa devagar</span>
+      <h2 class="display display--script display--forest" id="pranzoTitle" data-i18n="pranzo.title">Não há menu fixo.</h2>
+      <p class="muted" data-i18n="pranzo.lede">Há o que chegou hoje — e a massa que o Seb fez esta manhã.</p>
+    </header>
+
+    <div class="pranzo__ring">
+      <div class="pranzo__side pranzo__side--l">
+        <!-- Real house photograph. -->
+        <figure class="polaroid polaroid--a reveal">
+          <div class="frame">
+            <img class="photo" src="img/massa-dia.webp"
+                 alt="Dois pratos de massa fresca numa mesa posta, com o cartão calma calma ao centro."
+                 data-i18n-alt="alt.pasta"
+                 loading="lazy" width="480" height="640" decoding="async">
+          </div>
+          <figcaption data-i18n="pranzo.cap1">massa do dia</figcaption>
+        </figure>
+      </div>
+
+      <!-- reserves the exact footprint the sticky plate lands in -->
+      <div class="pranzo__slot" aria-hidden="true"></div>
+
+      <div class="pranzo__side pranzo__side--r">
+        <!-- Real house photograph. -->
+        <figure class="polaroid polaroid--b reveal">
+          <div class="frame">
+            <img class="photo" src="img/partilhar.webp"
+                 alt="Ostras, presunto com melão e tomate, vistos de cima sobre a toalha."
+                 data-i18n-alt="alt.share"
+                 loading="lazy" width="480" height="639" decoding="async">
+          </div>
+          <figcaption data-i18n="pranzo.cap2">para partilhar</figcaption>
+        </figure>
+        <!-- Real house photograph (Instagram story, overlay cropped off). -->
+        <figure class="polaroid polaroid--c reveal">
+          <div class="frame">
+            <img class="photo" src="img/pappardelle.webp"
+                 alt="Pappardelle ao ragú, com queijo ralado por cima."
+                 data-i18n-alt="alt.pappardelle"
+                 loading="lazy" width="335" height="418" decoding="async">
+          </div>
+          <figcaption data-i18n="pranzo.cap3">pappardelle ao ragú</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p class="pranzo__foot muted reveal" data-i18n="pranzo.foot">Rode o prato para ver o resto do dia.</p>
+  </section>
+</div><!-- /.stage -->
+
+<!-- divider 2 of 3: torn edge -->
+<div class="divider bg-sand" aria-hidden="true">
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+    <path class="fill-white" d="M0,84 C120,54 200,104 320,82 C440,60 520,98 640,78 C760,58 840,96 960,80 C1080,64 1180,98 1290,76 C1362,62 1408,74 1440,66 L1440,110 L0,110 Z"/>
+  </svg>
+</div>
+
+<!-- =========================================================================
+     03 · LA CASA — the story
+     ====================================================================== -->
+<section id="casa" class="section section--white" aria-labelledby="casaTitle">
+  <div class="wrap">
+    <div class="casa__grid">
+
+      <figure class="casa__portrait reveal">
+        <div class="frame frame--px">
+          <!-- SHOT: the pass, mid-service. Real house photograph. -->
+          <img class="photo" src="img/chef-pass.webp"
+               alt="Cozinheiro ao passe a polvilhar queijo sobre uma fila de pratos de legumes."
+               data-i18n-alt="alt.chef"
+               loading="lazy" width="1000" height="1333" decoding="async">
+        </div>
+        <figcaption class="casa__stamp">
+          <span class="script">fatto a mano</span>
+          <small data-i18n="casa.stamp">todos os dias</small>
+        </figcaption>
+      </figure>
+
+      <div class="casa__text reveal-child">
+        <span class="eyebrow" data-i18n="casa.eyebrow">A casa</span>
+        <h2 class="display" id="casaTitle" data-i18n="casa.title">Dois países numa cozinha. Três, se contarmos a sala.</h2>
+
+        <div class="prose muted mt-3">
+          <p data-i18n="casa.p1">O Seb — Eusebiu Tuchilus — faz massa fresca todas as manhãs, como aprendeu em Itália. A Lovejoy, arquitecta filipina e sua parceira, desenhou o espaço com as próprias mãos: madeira, cimento à vista, aço, terracota e verde.</p>
+          <p data-i18n="casa.p2">Abriram a 8 de agosto de 2025, numa rua do centro histórico de Setúbal. A carta muda com o que chega do mercado e da lota. O choco frito ficou, por respeito à terra.</p>
+        </div>
+
+        <blockquote class="pullquote">
+          <p data-i18n="casa.quote">“É um conceito um pouco diferente. Um restaurante italiano, mas usamos produtos da região de Setúbal.”</p>
+          <cite data-i18n="casa.cite">Chef Seb, fundador</cite>
+        </blockquote>
+
+        <dl class="stats">
+          <div class="stat">
+            <dd class="stat__num" data-count="40">0</dd>
+            <dt class="stat__label" data-i18n="casa.stat1">lugares dentro</dt>
+          </div>
+          <div class="stat">
+            <dd class="stat__num" data-count="50">0</dd>
+            <dt class="stat__label" data-i18n="casa.stat2">na esplanada</dt>
+          </div>
+          <div class="stat">
+            <dd class="stat__num" data-count="70" data-suffix="%">0</dd>
+            <dt class="stat__label" data-i18n="casa.stat3">vinhos portugueses</dt>
+          </div>
+        </dl>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     04 · APERITIVO — one enormous word, broken by a cut-out
+     ====================================================================== -->
+<section id="aperitivo" class="section section--white" aria-labelledby="apTitle">
+  <div class="wrap">
+    <div class="aperitivo__stage">
+
+      <!-- faint oversized olive branch behind everything (built in main.js) -->
+      <svg class="aperitivo__ghost" id="apGhost" viewBox="0 0 1200 420" aria-hidden="true" focusable="false"></svg>
+
+      <!-- floating corner branches, slow parallax drift -->
+      <svg class="branch branch--tl" id="branchTL" viewBox="0 0 400 400" aria-hidden="true" focusable="false"></svg>
+      <svg class="branch branch--br" id="branchBR" viewBox="0 0 400 400" aria-hidden="true" focusable="false"></svg>
+
+      <!-- the cut-out is anchored to the word, not to the section, so it can
+           never drift down onto the copy on shorter screens -->
+      <div class="aperitivo__object">
+        <h2 class="display display--forest aperitivo__word reveal" id="apTitle">
+          <span class="a" data-i18n="ap.a">APER</span><span class="b" data-i18n="ap.b">ITIVO</span>
+        </h2>
+
+      <!-- CUT-OUT: the real glass, keyed to transparency. The clear bowl and
+           stem let the cream ground through, the way a true cut-out should.
+           SWAP: replace img/wine.webp, keep the tall narrow crop. -->
+      <img class="aperitivo__cut" src="img/wine.webp"
+           alt="Copo de vinho tinto." data-i18n-alt="alt.wineglass"
+           width="560" height="1444" loading="lazy" decoding="async">
+      </div>
+
+      <div class="aperitivo__copy reveal">
+        <p class="lede muted" data-i18n="ap.copy">Cerveja artesanal Musa, vinho natural, um vermute com gelo. Nada de refrigerantes de marca grande — temos orgulho nisso. A esplanada apanha o último sol da Rua Antão Girão.</p>
+        <p class="script script--forest mt-3 tilt-2">piano piano</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- divider 3 of 3: the deep bowl -->
+<div class="divider bg-white" aria-hidden="true">
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+    <path class="fill-dark" d="M0,22 C360,104 1080,104 1440,22 L1440,110 L0,110 Z"/>
+  </svg>
+</div>
+
+<!-- =========================================================================
+     05 · CENA / VINHO — the one dramatic band
+     ====================================================================== -->
+<section id="cena" class="section section--dark on-dark grain grain--light" aria-labelledby="cenaTitle">
+  <div class="wrap">
+    <header class="cena__head reveal">
+      <span class="eyebrow" data-i18n="cena.eyebrow">Quando o sol se põe</span>
+      <h2 class="display display--light" id="cenaTitle" data-i18n="cena.title">A NOITE DEMORA</h2>
+      <span class="script script--light cena__script" data-i18n="cena.script">e ainda bem</span>
+    </header>
+
+    <div class="cena__split reveal-child">
+      <!-- Real house photograph. -->
+      <figure class="frame frame--px">
+        <img class="photo" src="img/sala-noite.webp"
+             alt="Sala cheia à noite, serviço entre as mesas e luz quente."
+             data-i18n-alt="alt.room"
+             loading="lazy" width="1200" height="1378" decoding="async">
+      </figure>
+      <!-- Real house photograph: the carbonara, above its own shrine. -->
+      <figure class="frame frame--px">
+        <img class="photo" src="img/carbonara.webp"
+             alt="Carbonara com guanciale e pecorino, queijo a cair sobre o prato."
+             data-i18n-alt="alt.carbonara"
+             loading="lazy" width="1000" height="673" decoding="async">
+      </figure>
+    </div>
+
+    <div class="cena__cols">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="cena.wineEyebrow">A garrafeira</span>
+        <ul class="winelist tabular">
+          <li><b data-i18n="cena.w1">Vinho português</b><span>70%</span></li>
+          <li><b data-i18n="cena.w2">Vinho italiano</b><span>30%</span></li>
+          <li><b data-i18n="cena.w3">Musa, cerveja artesanal</b><span data-i18n="cena.w3v">à pressão</span></li>
+          <li><b data-i18n="cena.w4">Refrigerantes de marca grande</b><span data-i18n="cena.w4v">zero</span></li>
+        </ul>
+        <p class="muted mt-3 fs-small" data-i18n="cena.wineNote">A selecção roda. Se gostar da garrafa, leve outra da mercearia ao lado.</p>
+      </div>
+
+      <div class="shrine reveal">
+        <span class="shrine__label" data-i18n="cena.shrineLabel">Sempre na carta</span>
+        <h3 class="display display--light" data-i18n="cena.shrineTitle">Carbonara</h3>
+        <p class="muted mt-2" data-i18n="cena.shrineCopy">Guanciale e pecorino romano. Sem natas, sem atalhos, sem discussão.</p>
+        <p class="script mt-3" data-i18n="cena.shrineScript">a única constante do menu</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider bg-dark" aria-hidden="true">
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+    <path class="fill-white" d="M0,60 C240,10 480,96 720,66 C960,36 1200,12 1440,58 L1440,110 L0,110 Z"/>
+  </svg>
+</div>
+
+<!-- =========================================================================
+     05b · PORCHETTA — o prato da casa.
+     The spiral, the crackling and the rosemary are all generated in main.js.
+     ====================================================================== -->
+<section id="porchetta" aria-labelledby="poTitle">
+  <svg class="sprig sprig--l" id="sprigL" viewBox="0 0 300 460" aria-hidden="true" focusable="false"></svg>
+  <svg class="sprig sprig--r" id="sprigR" viewBox="0 0 300 460" aria-hidden="true" focusable="false"></svg>
+
+  <span class="eyebrow porchetta__eyebrow" data-i18n="po.eyebrow">Quando o forno abre</span>
+
+  <div class="porchetta__stage">
+    <svg class="porchetta__watermark" id="poWatermark" viewBox="-200 -200 400 400" aria-hidden="true" focusable="false"></svg>
+    <h2 class="display display--thin porchetta__word" id="poTitle" data-i18n="po.title">PORCHETTA</h2>
+    <!-- The dish itself, as a cut-out on transparency so it breaks the headline
+         the way a real object should. The wrapper carries the bob and the contact
+         shadow (::after) — the photograph's own shadow went with the background.
+         SWAP: drop a new shoot in at img/porchetta.webp, same 3:2 crop. -->
+    <div class="porchetta__slice">
+      <img class="porchetta__slice-art" src="img/porchetta.webp"
+           alt="Porchetta assada inteira numa travessa, com alecrim e dentes de alho."
+           data-i18n-alt="alt.porchetta"
+           width="840" height="559" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  <p class="porchetta__copy" data-i18n="po.copy">Barriga de porco enrolada com alecrim, funcho e alho, a assar devagar até a pele estalar. É o prato mais lento da casa — e o primeiro a acabar.</p>
+  <span class="porchetta__tag"><i aria-hidden="true"></i><span data-i18n="po.tag">Domingos · enquanto durar</span></span>
+</section>
+
+<!-- =========================================================================
+     06 · MARQUEE — one slow strip, 40s
+     ====================================================================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marqueeTrack">
+    <div class="marquee__group">
+      <span>massa fresca</span><i></i><span>vinho natural</span><i></i><span>produtos locais</span><i></i><span>sem pressa</span><i></i>
+    </div>
+    <div class="marquee__group">
+      <span>massa fresca</span><i></i><span>vinho natural</span><i></i><span>produtos locais</span><i></i><span>sem pressa</span><i></i>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     07 · MERCEARIA
+     ====================================================================== -->
+<section id="mercearia" class="section section--forest-soft on-dark grain grain--light" aria-labelledby="mercTitle">
+  <div class="wrap">
+    <header class="reveal mw-34">
+      <span class="eyebrow" data-i18n="merc.eyebrow">Mercearia</span>
+      <h2 class="display display--light" id="mercTitle" data-i18n="merc.title">Leve a calma para casa.</h2>
+    </header>
+
+    <div class="mercearia__grid reveal-child">
+      <article class="merc-item">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M6 18h36l-4 22H10z"/><path d="M16 18l6-10M32 18l-6-10"/><path d="M18 26v7M24 26v7M30 26v7"/>
+        </svg>
+        <h3 class="display display--light" data-i18n="merc.i1t">Produtos locais</h3>
+        <p class="muted" data-i18n="merc.i1c">De pequenos produtores da região. O que houver, quando houver.</p>
+      </article>
+      <article class="merc-item">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M20 4h8v12l6 10v18H14V26l6-10z"/><path d="M14 30h20"/><path d="M20 10h8"/>
+        </svg>
+        <h3 class="display display--light" data-i18n="merc.i2t">Garrafeira rotativa</h3>
+        <p class="muted" data-i18n="merc.i2c">Portugueses e italianos, sempre a mudar. Prove à mesa, leve a garrafa.</p>
+      </article>
+      <article class="merc-item">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <ellipse cx="24" cy="28" rx="17" ry="11"/><path d="M11 26c5-5 21-5 26 0M13 32c6-4 16-4 22 0"/><path d="M24 17V9M18 17V11M30 17V11"/>
+        </svg>
+        <h3 class="display display--light" data-i18n="merc.i3t">Massa fresca para levar</h3>
+        <p class="muted" data-i18n="merc.i3c">A mesma da cozinha, em papel. Cozinha em três minutos.</p>
+      </article>
+    </div>
+
+    <div class="mercearia__media reveal">
+      <!-- graded down into the palette so a colourful shot cannot fight the band -->
+      <div class="frame frame--tone">
+        <!-- SHOT: mercearia shelves — wine bottles, paper bags, produce -->
+        <img class="photo" src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1400&q=70"
+             alt="Prateleiras da mercearia com legumes e produtos da região." data-i18n-alt="alt.merc"
+             loading="lazy" width="1400" height="600" decoding="async">
+      </div>
+      <p class="mt-3">
+        <a class="btn btn--invert" href="https://www.instagram.com/calmacalmamercearia/" target="_blank" rel="noopener"
+           data-i18n="merc.cta">@calmacalmamercearia</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider bg-forest-soft" aria-hidden="true">
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+    <path class="fill-sand" d="M0,84 C120,54 200,104 320,82 C440,60 520,98 640,78 C760,58 840,96 960,80 C1080,64 1180,98 1290,76 C1362,62 1408,74 1440,66 L1440,110 L0,110 Z"/>
+  </svg>
+</div>
+
+<!-- =========================================================================
+     08 · QUEM JÁ PROVOU
+     ====================================================================== -->
+<section id="provaram" class="section section--sand" aria-labelledby="revTitle">
+  <div class="wrap center">
+    <span class="eyebrow reveal" data-i18n="rev.eyebrow">Quem já provou</span>
+    <h2 class="display display--forest reveal" id="revTitle" data-i18n="rev.title">Ficam sempre mais um bocadinho.</h2>
+
+    <div class="reviews__grid reveal-child">
+      <figure class="note">
+        <blockquote data-i18n="rev.q1">“Comida fantástica, muito bom ambiente e serviço.”</blockquote>
+        <footer data-i18n="rev.a1">Tripadvisor</footer>
+      </figure>
+      <figure class="note">
+        <blockquote data-i18n="rev.q2">“Produtos locais de qualidade, relação qualidade-preço imbatível.”</blockquote>
+        <footer data-i18n="rev.a2">RestaurantGuru</footer>
+      </figure>
+      <figure class="note">
+        <blockquote data-i18n="rev.q3">“Pessoal simpático, sempre com conversa. Sai-se de lá mais calmo.”</blockquote>
+        <footer data-i18n="rev.a3">Sala, ao balcão</footer>
+      </figure>
+    </div>
+
+    <p class="rating reveal"><b>4,3</b><span data-i18n="rev.rating">de 5 · Tripadvisor &amp; RestaurantGuru</span></p>
+  </div>
+</section>
+
+<div class="divider bg-sand" aria-hidden="true">
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+    <path class="fill-white" d="M0,58 C240,2 480,4 720,38 C960,72 1200,82 1440,26 L1440,110 L0,110 Z"/>
+  </svg>
+</div>
+
+<!-- =========================================================================
+     09 · ONDE & QUANDO
+     ====================================================================== -->
+<section id="onde" class="section section--white" aria-labelledby="ondeTitle">
+  <div class="wrap">
+    <div class="onde__grid">
+
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="onde.eyebrow">Onde &amp; quando</span>
+        <h2 class="display" id="ondeTitle" data-i18n="onde.title">Rua Antão Girão, 44</h2>
+        <!-- stylised map. not to scale — a drawing of the block, not a service. -->
+        <div class="map mt-3">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Mapa estilizado do centro histórico de Setúbal com a localização do restaurante">
+            <rect width="400" height="300" fill="none"/>
+            <path class="map__water" d="M0 264 C90 250 150 276 220 268 C300 258 350 274 400 266 L400 300 L0 300 Z"/>
+            <g class="map__block">
+              <rect x="34" y="46" width="86" height="58" rx="2"/>
+              <rect x="140" y="40" width="66" height="64" rx="2"/>
+              <rect x="226" y="52" width="96" height="52" rx="2"/>
+              <rect x="46" y="128" width="72" height="70" rx="2"/>
+              <rect x="140" y="128" width="66" height="42" rx="2"/>
+              <rect x="140" y="188" width="66" height="34" rx="2"/>
+              <rect x="230" y="128" width="88" height="94" rx="2"/>
+            </g>
+            <g class="map__street">
+              <path d="M0 116 H400"/><path d="M0 210 H400"/>
+              <path d="M128 0 V300"/><path d="M216 0 V300"/><path d="M330 0 V300"/>
+              <path d="M0 74 H36 M118 74 H140"/>
+            </g>
+            <g class="map__pin">
+              <path d="M172 178 c0 -14 22 -14 22 0 c0 10 -11 22 -11 22 s-11 -12 -11 -22 z"/>
+              <circle cx="183" cy="178" r="4" fill="var(--cream)"/>
+            </g>
+            <text class="map__label" x="200" y="240" text-anchor="middle">Rua Antão Girão</text>
+            <text class="map__label" x="200" y="290" text-anchor="middle">Sado</text>
+          </svg>
+        </div>
+        <p class="mt-3">
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Rua+Ant%C3%A3o+Gir%C3%A3o+44%2C+2900-475+Set%C3%BAbal"
+             target="_blank" rel="noopener" data-i18n="onde.maps">Abrir no Google Maps</a>
+        </p>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="onde.hoursEyebrow">Horário</span>
+        <!-- HOURS: sources conflict (Google / Tripadvisor / Instagram).
+             CONFIRM WITH RESTAURANT before publishing. -->
+        <table class="hours">
+          <caption class="sr-only" data-i18n="onde.hoursCaption">Horário de funcionamento</caption>
+          <thead>
+            <tr><th scope="col" data-i18n="onde.day">Dia</th><th scope="col" data-i18n="onde.time">Horas</th></tr>
+          </thead>
+          <tbody>
+            <tr data-day="1,2,3,4"><td data-i18n="onde.d1">Segunda a quinta</td><td class="tabular">12:30–14:30 · 18:30–22:00</td></tr>
+            <tr data-day="5,6"><td data-i18n="onde.d2">Sexta e sábado</td><td class="tabular">12:30–14:30 · 18:30–23:30</td></tr>
+            <tr data-day="0"><td data-i18n="onde.d3">Domingo</td><td class="tabular">12:00–19:00</td></tr>
+          </tbody>
+        </table>
+        <p class="muted mt-2 fs-fine" data-i18n="onde.hoursNote">Horário sujeito a confirmação — ligue-nos se vier de longe.</p>
+
+        <dl class="contact">
+          <div><dt data-i18n="onde.addr">Morada</dt><dd>Rua Antão Girão 44, 2900-475 Setúbal</dd></div>
+          <div><dt data-i18n="onde.phone">Telefone</dt><dd><a class="link" href="tel:+351938102159">+351 938 102 159</a></dd></div>
+          <div><dt>Instagram</dt><dd><a class="link" href="https://www.instagram.com/calmacalma.restaurante/" target="_blank" rel="noopener">@calmacalma.restaurante</a></dd></div>
+        </dl>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     10 · RESERVAR
+     ====================================================================== -->
+<section id="reservar" class="section section--forest on-dark grain grain--light" aria-labelledby="resTitle">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow eyebrow--light" data-i18n="res.eyebrow">Reservar</span>
+      <h2 class="display display--light" id="resTitle" data-i18n="res.title">A mesa está posta.</h2>
+      <span class="script script--light reservar__script" data-i18n="res.script">falta só você</span>
+    </div>
+
+    <div class="btn-row btn-row--center reveal mt-4">
+      <a class="btn btn--invert" href="tel:+351938102159" data-i18n="res.call">Ligar +351 938 102 159</a>
+      <a class="btn btn--ghost-light" href="https://www.instagram.com/calmacalma.restaurante/" target="_blank" rel="noopener" data-i18n="res.dm">Mensagem no Instagram</a>
+    </div>
+
+    <!-- the arc-text motif returns, small and slow -->
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200" focusable="false">
+        <defs><path id="badgePath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+        <g class="badge__spin">
+          <text><textPath href="#badgePath" startOffset="0">calma · calma · calma · calma · calma · </textPath></text>
+        </g>
+        <circle class="badge__dot" cx="100" cy="100" r="4"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================================
+     FOOTER
+     ====================================================================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">calma calma</p>
+        <p class="muted fs-small mw-34" data-i18n="ft.blurb">Trattoria e mercearia no centro histórico de Setúbal. Cozinha italiana com o que a região dá, desde 8 de agosto de 2025.</p>
+      </div>
+      <div>
+        <h3 data-i18n="ft.visit">Visitar</h3>
+        <ul class="muted">
+          <li>Rua Antão Girão 44</li>
+          <li>2900-475 Setúbal</li>
+          <li><a class="link" href="tel:+351938102159">+351 938 102 159</a></li>
+          <li><a class="link" href="https://www.google.com/maps/search/?api=1&query=Rua+Ant%C3%A3o+Gir%C3%A3o+44%2C+2900-475+Set%C3%BAbal" target="_blank" rel="noopener" data-i18n="onde.maps">Abrir no Google Maps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="ft.follow">Seguir</h3>
+        <ul class="muted">
+          <li><a class="link" href="https://www.instagram.com/calmacalma.restaurante/" target="_blank" rel="noopener">@calmacalma.restaurante</a></li>
+          <li><a class="link" href="https://www.instagram.com/calmacalmamercearia/" target="_blank" rel="noopener">@calmacalmamercearia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Calma Calma, Setúbal</span>
+      <span class="script fs-script-sm">calma, calma</span>
+    </div>
+  </div>
+</footer>
+
+<!-- GSAP + ScrollTrigger (CDN). Static site, no build step. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="main.js" defer></script>
+</body>
+</html>
