@@ -421,18 +421,42 @@
     tl.to(plateUi, { opacity: 1, duration: 0.25 }, 0.78);
 
   } else if (hasGSAP && !REDUCE && SMALL) {
-    /* ---- mobile: no pin, no scrub. an ordinary reveal. ---- */
+    /* ---- mobile: still no pin, but the handoff is scroll-linked, not timed ----
+       This was a one-shot 1.1s tween. Measured on a 390x844 viewport, the fade
+       finished inside ~200px of travel — less than a single thumb-flick — and a
+       reload with the page already scrolled past the trigger replayed the whole
+       thing during page settle. Either way the fork was gone before anyone could
+       watch it go, which read as "it just disappears".
+       Scrubbing ties it to the reader's thumb the way the desktop scrub does, so
+       it cannot be outrun at any scroll speed. Still no pin: scrub alone does not
+       take the section out of flow, so native scrolling stays untouched. */
     gsap.set(plateWrap, { y: 0, scale: 1 });
     gsap.set(plate, { rotateX: 0 });
     startAmbientSpin(45);
+
+    /* the plate's own entrance stays a one-shot: an entrance that finishes
+       early is merely unseen, not wrong. Only the exit needed scrubbing. */
     ScrollTrigger.create({
       trigger: '#plateLayer', start: 'top 80%', once: true,
       onEnter: function () {
         gsap.from(plateWrap, { scale: 0.86, opacity: 0, duration: 1.1, ease: 'power2.out' });
-        gsap.to(forkful, { y: -70, opacity: 0, duration: 1.1, ease: 'power2.inOut' });
-        gsap.to(plateUi, { opacity: 1, duration: 0.6, delay: 0.5, onStart: liveUi });
       }
     });
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#plateLayer',
+        start: 'top 75%',        /* the band is meaningfully on screen */
+        end: 'center 40%',       /* ~460px of travel on a 844px viewport */
+        scrub: true,
+        onEnter: liveUi,
+        onUpdate: function (self) { if (self.progress >= 1 && !uiLive) liveUi(); }
+      }
+    })
+      .fromTo(forkful, { y: 0, opacity: 1 },
+                       { y: -70, opacity: 0, ease: 'none', duration: 1 }, 0)
+      .fromTo(plateUi, { opacity: 0 },
+                       { opacity: 1, ease: 'none', duration: 0.4 }, 0.6);
 
   } else {
     /* ---- reduced motion (or no GSAP): two static states, no tweening ---- */
