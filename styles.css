@@ -191,7 +191,14 @@ h3.display{font-size:var(--fs-h3);line-height:1.1}
 .btn-row--center{justify-content:center}
 
 /* flour / paper grain — two offset speckle grids so the pattern reads
-   irregular. pure CSS, no image request. */
+   irregular. pure CSS, no image request.
+   Hero only, and deliberately so. There used to be a .grain--light variant:
+   the same two grids in cream, screen-blended over the three forest sections.
+   Grain works by breaking up a photograph; over a flat colour field there is
+   nothing to break up, so the grids stopped reading as texture and started
+   reading as what they literally are — rows of pale dots on a 3px and a 7px
+   pitch. Removed rather than softened, because the regularity was the
+   problem, not the strength. */
 .grain::after{
   content:"";position:absolute;inset:0;pointer-events:none;z-index:4;
   opacity:.5;mix-blend-mode:multiply;
@@ -199,12 +206,6 @@ h3.display{font-size:var(--fs-h3);line-height:1.1}
     radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink) 30%, transparent) .6px, transparent 0),
     radial-gradient(circle at 2px 3px, color-mix(in srgb, var(--ink) 18%, transparent) .6px, transparent 0);
   background-size:3px 3px,7px 7px;
-}
-.grain--light::after{
-  mix-blend-mode:screen;opacity:.3;
-  background-image:
-    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--cream) 34%, transparent) .6px, transparent 0),
-    radial-gradient(circle at 2px 3px, color-mix(in srgb, var(--cream) 20%, transparent) .6px, transparent 0);
 }
 
 /* every photo gets the same warm trattoria grade so mixed sources cohere */
