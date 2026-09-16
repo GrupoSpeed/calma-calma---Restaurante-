@@ -373,7 +373,17 @@
   var forkful   = $('#forkful');
   var heroTop   = $('.hero__top');
 
-  var HERO_SCALE = 0.56;     /* × ≈1.8 — the dial grows into place */
+  /* The forkful is not sized on its own: .forkful-anchor lives INSIDE
+     .plate-wrap at 78% of it, so the pasta scales with the plate and the nest
+     always sits in the well. That means the only way to serve a bigger forkful
+     is a bigger centrepiece. At 0.56 the plate rendered 232px wide on a 1440px
+     screen and the spaghetti — the one appetising thing in the hero — was
+     smaller than the word "calma" behind it.
+     0.72 renders 298px: +29% across, +66% in area. Not higher, because the
+     fork's handle starts cutting into the lockup's top line around 0.8, and
+     because the plate still has to visibly grow into the dial — 0.72 keeps
+     that at ×1.39, while 0.8 flattens it to ×1.25 and the beat stops reading. */
+  var HERO_SCALE = 0.72;     /* × ≈1.4 — the dial grows into place */
   var HERO_Y     = 17;       /* breaks the bottom third of the lockup's second line */
   var spinTween, counterTween;
 
