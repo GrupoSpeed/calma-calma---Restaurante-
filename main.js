@@ -344,11 +344,18 @@
   var heroImg     = $('#heroImg');
 
   if (hasGSAP && !REDUCE) {
+    /* The intro animates what is INSIDE .hero__bottom, never .hero__bottom
+       itself. The handoff scrub below fades that wrapper out as the plate
+       arrives, and a scrub reads its start value the first time it renders —
+       which is at page load, with this `from` already holding the element at
+       opacity 0. Sharing the element would freeze the wrapper invisible. */
+    var introBits = [$('.hero__bottom .btn-row'), $('.hero__bottom .hero__cue')]
+                      .filter(Boolean);
     var intro = gsap.timeline({ defaults: { ease: 'power2.out' } });
     intro.from(heroImg, { scale: 1.06, duration: 2, ease: 'power2.out' }, 0)
          .from($('#heroTitle'), { y: 28, opacity: 0, duration: 1.3 }, 0.25)
-         .from(heroScript, { opacity: 0, y: 14, duration: 1 }, 1.05)
-         .from(heroBottom, { opacity: 0, y: 16, duration: 1 }, 1.25);
+         .from(heroScript, { opacity: 0, y: 14, duration: 1 }, 1.05);
+    if (introBits.length) intro.from(introBits, { opacity: 0, y: 16, duration: 1 }, 1.25);
   }
 
   /* -- 06 THE HANDOFF ------------------------------------------------------ */
@@ -409,16 +416,55 @@
         onEnterBack: function () { uiLive = false; plateUi.classList.remove('is-live'); }
       }
     });
-    /* 0 → .35   the forkful lifts away */
-    tl.to(forkful, { y: -180, opacity: 0, ease: 'power1.in', duration: 0.35 }, 0);
-    /* .2 → .7   the arc recedes; the plate flattens from table view to overhead */
-    tl.to(heroTop, { scale: 0.8, opacity: 0, ease: 'power1.in', duration: 0.5 }, 0.2);
-    tl.to(plate,   { rotateX: 0, ease: 'none', duration: 0.5 }, 0.2);
-    /* .4 → 1    the plate grows into the dial and the spin winds up */
-    tl.to(plateWrap, { y: 0, scale: 1, ease: 'none', duration: 0.6 }, 0.4);
-    tl.to([spinTween, counterTween], { timeScale: 1, ease: 'none', duration: 0.6 }, 0.4);
-    tl.to(plateContent, { opacity: 1, duration: 0.22 }, 0.7);
-    tl.to(plateUi, { opacity: 1, duration: 0.25 }, 0.78);
+
+    /* The window is 100% of the viewport — 900px on a laptop — and is fixed by
+       the layout: it has to land exactly where the sticky layer releases. So the
+       only thing that can be tuned is how the beats are spread across it, and
+       the old spread had two faults, both visible on a 1440x900 screen:
+
+         · the forkful was gone by p=.35 and the dial's copy did not arrive until
+           p=.70. That left ~315px of scroll — a third of the whole handoff —
+           with a blank white dish drifting through empty cream. That drift is
+           the "plate flying over the place".
+         · worse, most of the lift happened between y=100 and y=300. Two notches
+           of a wheel. The spaghetti was off the plate before you knew it was on
+           it, which is why the fork "has no animation" on desktop.
+
+       So: the lift is stretched to 405px and split into separate motion and
+       fade tweens, so the forkful visibly climbs while still opaque instead of
+       dissolving on the spot; the plate starts growing while the fork is still
+       leaving, so the two read as one handoff; and the dial's copy arrives right
+       behind it. The blank-dish gap closes from ~315px to ~110px, and the plate
+       is flattening and growing across even that.
+       Timings are absolute positions on a timeline that is exactly 1.0 long, so
+       p × 900 = the scroll position each beat lands at. */
+
+    /* .05 → .50   the forkful is raised, and only then thins out.
+       Splitting y from opacity is the whole point: one tween with both would
+       fade it out while it was still barely moving. */
+    tl.to(forkful, { y: -260, rotate: -7, ease: 'power1.in', duration: 0.45 }, 0.05);
+    tl.to(forkful, { opacity: 0, ease: 'power2.in', duration: 0.32 }, 0.18);
+
+    /* .12 → .40   the subtitle and buttons leave ahead of the plate.
+       Without this they scroll up underneath a sticky plate and sit behind it —
+       at y=300 the dish covered "Reservar mesa" outright. */
+    tl.to(heroBottom, { y: -30, opacity: 0, ease: 'power1.in', duration: 0.28 }, 0.12);
+
+    /* .15 → .60   the lockup recedes */
+    tl.to(heroTop, { scale: 0.8, opacity: 0, ease: 'power1.in', duration: 0.45 }, 0.15);
+
+    /* .32 → 1     the plate grows into the dial and the spin winds up */
+    tl.to(plateWrap, { y: 0, scale: 1, ease: 'none', duration: 0.68 }, 0.32);
+    tl.to([spinTween, counterTween], { timeScale: 1, ease: 'none', duration: 0.68 }, 0.32);
+
+    /* .38 → .68   table view flattens to overhead, once the fork is clear of it */
+    tl.to(plate, { rotateX: 0, ease: 'none', duration: 0.30 }, 0.38);
+
+    /* .62 → 1     the dial's copy, then its controls.
+       The old plateUi tween ran to 1.03 and so could never finish inside the
+       scrub — it only ever completed because onLeave forced it. */
+    tl.to(plateContent, { opacity: 1, duration: 0.20 }, 0.62);
+    tl.to(plateUi, { opacity: 1, duration: 0.22 }, 0.74);
 
   } else if (hasGSAP && !REDUCE && SMALL) {
     /* ---- mobile: still no pin, but the handoff is scroll-linked, not timed ----
