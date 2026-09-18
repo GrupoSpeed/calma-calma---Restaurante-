@@ -678,32 +678,20 @@
       <div class="reveal">
         <span class="eyebrow" data-i18n="onde.eyebrow">Onde &amp; quando</span>
         <h2 class="display" id="ondeTitle" data-i18n="onde.title">Rua Antão Girão, 44</h2>
-        <!-- stylised map. not to scale — a drawing of the block, not a service. -->
+        <!-- Real Google map, not a drawing. Kept keyless: the /maps?q=...&output=embed
+             form needs no API key and so nothing to rotate or bill. loading="lazy"
+             matters here - the embed pulls ~900KB of Google's own scripts and tiles,
+             and this section sits at the very bottom of a 10,000px page, so it must
+             not be on the critical path. The iframe is its own browsing context and
+             cannot be styled from here; the rounded corner comes from .map clipping it. -->
         <div class="map mt-3">
-          <svg viewBox="0 0 400 300" role="img" aria-label="Mapa estilizado do centro histórico de Setúbal com a localização do restaurante">
-            <rect width="400" height="300" fill="none"/>
-            <path class="map__water" d="M0 264 C90 250 150 276 220 268 C300 258 350 274 400 266 L400 300 L0 300 Z"/>
-            <g class="map__block">
-              <rect x="34" y="46" width="86" height="58" rx="2"/>
-              <rect x="140" y="40" width="66" height="64" rx="2"/>
-              <rect x="226" y="52" width="96" height="52" rx="2"/>
-              <rect x="46" y="128" width="72" height="70" rx="2"/>
-              <rect x="140" y="128" width="66" height="42" rx="2"/>
-              <rect x="140" y="188" width="66" height="34" rx="2"/>
-              <rect x="230" y="128" width="88" height="94" rx="2"/>
-            </g>
-            <g class="map__street">
-              <path d="M0 116 H400"/><path d="M0 210 H400"/>
-              <path d="M128 0 V300"/><path d="M216 0 V300"/><path d="M330 0 V300"/>
-              <path d="M0 74 H36 M118 74 H140"/>
-            </g>
-            <g class="map__pin">
-              <path d="M172 178 c0 -14 22 -14 22 0 c0 10 -11 22 -11 22 s-11 -12 -11 -22 z"/>
-              <circle cx="183" cy="178" r="4" fill="var(--cream)"/>
-            </g>
-            <text class="map__label" x="200" y="240" text-anchor="middle">Rua Antão Girão</text>
-            <text class="map__label" x="200" y="290" text-anchor="middle">Sado</text>
-          </svg>
+          <iframe
+            src="https://www.google.com/maps?q=Calma%20Calma%20Restaurante%2C%20Rua%20Ant%C3%A3o%20Gir%C3%A3o%2044%2C%202900-475%20Set%C3%BAbal&amp;z=16&amp;output=embed"
+            title="Mapa do Calma Calma, Rua Antão Girão 44, Setúbal"
+            aria-label="Mapa do Calma Calma, Rua Antão Girão 44, Setúbal"
+            data-i18n-aria="onde.mapAria"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
         </div>
         <p class="mt-3">
           <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Rua+Ant%C3%A3o+Gir%C3%A3o+44%2C+2900-475+Set%C3%BAbal"

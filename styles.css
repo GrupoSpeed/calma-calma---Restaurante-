@@ -524,8 +524,22 @@ h3.display{font-size:var(--fs-h3);line-height:1.1}
 }
 .plate-arrow:hover{background:color-mix(in srgb, var(--forest) 10%, transparent);transform:translateY(-2px)}
 .plate-arrow svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6}
-.plate-dots{display:flex;gap:var(--s1)}
-.plate-dot{width:7px;height:7px;border-radius:50%;background:var(--rule-strong);transition:background-color .4s var(--ease-calma),transform .4s var(--ease-calma)}
+.plate-dots{display:flex;gap:var(--s2)}
+/* 7px is how big the dot should LOOK. It is not how big the thing you press
+   should be: at 7px with 8px gaps these were 49px2 of target, which no
+   fingertip can hit reliably. ::after lays a transparent 23x44 target over
+   each one - 13x the area, and sized to the dot pitch (7px dot + 16px gap)
+   so neighbouring targets butt up against each other and never overlap.
+   Overlapping targets would be its own bug: the wrong slide would open. */
+.plate-dot{
+  position:relative;
+  width:7px;height:7px;border-radius:50%;background:var(--rule-strong);
+  transition:background-color .4s var(--ease-calma),transform .4s var(--ease-calma);
+}
+.plate-dot::after{
+  content:"";position:absolute;left:50%;top:50%;
+  width:calc(7px + var(--s2));height:44px;transform:translate(-50%,-50%);
+}
 .plate-dot[aria-current="true"]{background:var(--forest-deep);transform:scale(1.35)}
 
 /* the forkful of tagliatelle — lifts away on scroll */
@@ -844,13 +858,13 @@ h3.display{font-size:var(--fs-h3);line-height:1.1}
 
 /* -- 18 ONDE & QUANDO ----------------------------------------------------- */
 .onde__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(var(--s4),6vw,var(--s6));align-items:start}
-.map{position:relative;background:var(--sand);border:1px solid var(--rule);aspect-ratio:4/3;overflow:hidden}
-.map svg{width:100%;height:100%}
-.map__street{stroke:var(--rule-strong);fill:none;stroke-width:1.5}
-.map__block{fill:color-mix(in srgb, var(--forest) 16%, var(--cream))}
-.map__water{fill:color-mix(in srgb, var(--forest) 26%, var(--cream))}
-.map__pin{fill:var(--forest)}
-.map__label{font-family:var(--font-body);font-size:9px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ink-muted)}
+/* Holds a Google Maps iframe. An iframe is a separate browsing context, so
+   none of this reaches inside it - the border is a frame around Google's
+   map, not styling of it. The old .map__* rules drew a stylised SVG of the
+   block and went with it. */
+.map{position:relative;background:var(--sand);border:1px solid var(--rule);
+  aspect-ratio:4/3;overflow:hidden}
+.map iframe{display:block;width:100%;height:100%;border:0}
 .hours{width:100%;border-collapse:collapse;margin-top:var(--s3)}
 .hours th:last-child{text-align:right}
 .hours th{text-align:left;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);font-weight:600;padding-bottom:var(--s1)}

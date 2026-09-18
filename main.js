@@ -107,6 +107,7 @@
     'onde.d1': 'Monday to Thursday', 'onde.d2': 'Friday and Saturday', 'onde.d3': 'Sunday',
     'onde.hoursNote': 'Hours subject to confirmation - call us if you are coming from far away.',
     'onde.addr': 'Address', 'onde.phone': 'Phone',
+    'onde.mapAria': 'Map of Calma Calma, Rua Antão Girão 44, Setúbal',
 
     'res.eyebrow': 'Book',
     'res.title': 'The table is set.',
